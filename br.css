@@ -1,0 +1,340 @@
+@charset "UTF-8";
+
+/*!
+ * Marp Dracula theme.
+ * @theme br
+ * @author Daniel Nicolas Gisolfi
+ *
+ * @auto-scaling true
+ * @size 4:3 960px 720px
+ * @size 16:9 1280px 720px
+ */
+
+/* @import url("https://fonts.googleapis.com/css?family=Lato:400,900|IBM+Plex+Sans:400,700"); */
+
+:root {
+  --dracula-background: #fafafa;
+  --dracula-current-line: #333333;
+  --dracula-foreground: #f8f8f2;
+  --dracula-comment: #6272a4;
+  --dracula-cyan: #8be9fd;
+  --dracula-green: #2a6e3f;
+  --dracula-orange: #ffb86c;
+  --dracula-pink: #ff79c6;
+  --dracula-purple: #bd93f9;
+  --dracula-red: #ff5555;
+  --dracula-yellow: #f1fa8c;
+  --dracula-footer: #8b968d;
+  width: 1280px;
+  height: 720px;
+  font-family: "inter", "思源黑体", "微软雅黑";
+  /* font-size: 40px; */
+  /* padding: 1rem; */
+}
+
+/* 标题 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0.5em 0 0 0;
+  color: ForestGreen;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.3em;
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+h5 {
+  font-size: 1em;
+}
+
+h6 {
+  font-size: 0.9em;
+}
+
+section {
+  background-color: var(--dracula-background);
+  background-image: url("https://s2.loli.net/2022/06/17/JtWhyDBZ6Hq3P2m.png");
+  background-size: 8%;
+  background-repeat: no-repeat;
+  background-position: 97% 3%;
+
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+
+  padding: 70px 70px 70px 70px;
+
+  font-size: 24pt;   /* 字体大小 */
+  line-height: 1.5; /* 行高 */
+  letter-spacing: 1.25px; /* 字间距 */
+  color: var(--dracula-current-line);  /* 字体颜色 */
+
+}
+
+section > *:first-child,
+section > header:first-child + * {
+  margin-top: 0;
+}
+
+/* 正文？ */
+p {
+  margin: 1em 0 0 0;
+  overflow: visible;
+}
+
+/* 页眉 */
+header {
+  left: 0;
+  right: 0;
+  top: 0;
+  text-align: center;
+}
+
+
+/* 页脚 */
+footer {
+  /* left: 45%; */
+  left: 0;
+  text-align: center;
+  margin: 0;
+  position: absolute;
+  font-size: 12pt;
+  font-weight: 200;
+  color: var(--dracula-footer);
+}
+
+/* 页脚补充 */
+
+footer,
+section::after {
+  font-size: 12pt;
+  padding: 0;
+  position: absolute;
+  right: 5%;
+  bottom: 1em;
+  color: var(--dracula-footer);
+  font-weight: 200;
+  /* Add "/" prefix and total page number */
+  content: attr(data-marpit-pagination) " / " attr(data-marpit-pagination-total);
+}
+
+
+
+/* 列表 */
+ul > li,
+ol > li {
+  margin: 0.3em 0 0 0;
+  color: var(--dracula-current-line);
+}
+ul > li > p,
+ol > li > p {
+  margin: 0.6em 0 0 0;
+}
+
+/* 引用块 */
+blockquote {
+  margin: 1em 1em 1em 2em;
+  padding: 0 1em;
+  position: relative;
+  font-family: inter, kaiti;
+  color: var(--dracula-comment);
+}
+/* 引用块前后 */
+blockquote::after,
+blockquote::before {
+  content: "“";
+  display: block;
+  font-family: "Times New Roman", serif;
+  font-weight: bold;
+  position: absolute;
+  color: var(--dracula-comment);
+}
+blockquote::before {
+  top: 0;
+  left: 0;
+}
+blockquote::after {
+  right: 0;
+  bottom: 0;
+  transform: rotate(180deg);
+}
+
+blockquote > *:first-child {
+  margin-top: 0;
+}
+
+/* 标记 */
+mark {
+  background: transparent;
+}
+section mark {
+  color: var(--dracula-comment);
+}
+
+/* 链接 */
+section a {
+  color: var(--dracula-green);
+}
+
+/* 代码 */
+code {
+  display: inline-block;
+  font-size: 0.9em;
+  letter-spacing: 0;
+  margin: -0.1em 0.15em;
+  padding: 0.1em 0.2em;
+  vertical-align: baseline;
+  color: var(--dracula-green);
+  font-family: roboto;
+}
+
+pre {
+  display: block;
+  margin: 1em 0 0 0;
+  min-height: 1em;
+  overflow: visible;
+}
+pre code {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 100%;
+  padding: 0.5em;
+  font-size: 0.7em;
+}
+pre code svg[data-marp-fitting="svg"] {
+  max-height: calc(580px - 1em);
+}
+
+section code {
+  background: var(--dracula-foreground);
+  color: var(--dracula-current-green);
+}
+
+section pre > code {
+  background: var(--dracula-foreground);
+}
+
+/* 表格 */
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin: 1em 0 0 0;
+  width: 80%;
+  position: relative;
+  left: 10%;
+  text-align: center;
+}
+table th,
+table td {
+  padding: 0.4em 0.4em;
+  border-width: 1px;
+  border-style: solid;
+}
+
+section table th,
+section table td {
+  border-color: var(--dracula-current-line);
+}
+/* section table thead th {
+  background: var(--dracula-current-line);
+  color: var(--dracula-yellow);
+} */
+/* section table tbody > tr:nth-child(even) td,
+section table tbody > tr:nth-child(even) th {
+  background: var(--dracula-current-line);
+} */
+
+/* SVG 图片格式 */
+svg[data-marp-fitting="svg"] {
+  max-height: 580px;
+}
+
+/* 首页 */
+
+section.fs {
+  background-image: url("https://s2.loli.net/2022/06/17/JtWhyDBZ6Hq3P2m.png");
+  background-size: 25%;
+  background-repeat: no-repeat;
+  background-position: 50% 15%;
+  /* background-color: white; */
+  text-align: center;
+}
+section.fs h1 {
+  font-family: "思源黑体";
+  padding-top: 250px;
+  padding-bottom: 100px;
+}
+section.fs p {
+  font-family: "inter", "仿宋";
+  font-size: 20pt;
+  font-weight: 200;
+  color: #1f3134;
+  line-height: 35pt;
+}
+
+
+/* 分节 */
+
+section.st {
+  text-align: center;
+  padding-top: 300px;
+}
+
+
+/* 两栏 */
+
+section.split {
+  overflow: visible;
+  display: grid;
+  grid-template-columns: 600px 600px;
+  grid-template-rows: 100px auto;
+  grid-template-areas: 
+      "slideheading slideheading"
+      "leftpanel rightpanel";
+}
+
+/* debug */
+section.split h3, 
+section.split .ldiv, 
+section.split .rdiv { border: 1.5pt  }
+section.split h3 {
+  grid-area: slideheading;
+  font-size: 1.2em;
+}
+section.split .ldiv { grid-area: leftpanel; }
+section.split .rdiv { grid-area: rightpanel; }
+
+
+/* 没有标题页 */
+
+section.wt {
+  padding: 165px 70px 100px 70px;  
+}
+
+
+
+
+/* 末页 */
+section.bg {
+  /* background-color: #fffffc; */
+  /* background-size: cover; */
+  text-align: center;
+  padding-top: 300px;
+}
