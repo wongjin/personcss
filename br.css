@@ -8,9 +8,14 @@
  * @auto-scaling true
  * @size 4:3 960px 720px
  * @size 16:9 1280px 720px
+ * Update on: 2022-09-20
  */
 
 /* @import url("https://fonts.googleapis.com/css?family=Lato:400,900|IBM+Plex+Sans:400,700"); */
+
+/* @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Zilla+Slab:ital,wght@0,400;0,600;1,400;1,600&display=swap'); */
+
+
 
 :root {
   --dracula-background: #fafafa;
@@ -27,9 +32,10 @@
   --dracula-footer: #8b968d;
   width: 1280px;
   height: 720px;
-  font-family: "inter", "思源黑体", "微软雅黑";
+  font-family: "Arial","微软雅黑";
   /* font-size: 40px; */
   /* padding: 1rem; */
+
 }
 
 /* 标题 */
@@ -78,9 +84,7 @@ section {
   right: 0px;
   top: 0px;
   bottom: 0px;
-
   padding: 70px 70px 70px 70px;
-
   font-size: 24pt;   /* 字体大小 */
   line-height: 1.5; /* 行高 */
   letter-spacing: 1.25px; /* 字间距 */
@@ -97,6 +101,24 @@ section > header:first-child + * {
 p {
   margin: 1em 0 0 0;
   overflow: visible;
+  text-align: justify; /* 文本两端对齐 */
+  text-justify: inter-ideograph; /* 调整表意文字间距以保持两端对齐 */
+  /* hyphens: auto; */
+  /* word-break:keep-all; */
+
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+p:lang(en) {
+  line-height: 1.5; /* 西文字母较小，行距从 1.75 减小至 1.5 */
+  text-align: left; /* 西文文本左对齐 */
+}
+
+p:lang(en) {
+  hyphens: auto; /* 西文自动断词，包括以下两个 -<vendor>-hyphens 的兼容性选项 */
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
 }
 
 /* 页眉 */
@@ -266,7 +288,26 @@ svg[data-marp-fitting="svg"] {
   max-height: 580px;
 }
 
-/* 首页 */
+
+/* 图片 */
+
+img[alt$="imgr"] {
+  float: right;
+}
+
+img[alt$="imgl"] {
+  float: left;
+}
+
+img[alt$="imgc"] {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: auto;
+  float: none!important;
+}
+
+/* 首页 fs */
 
 section.fs {
   background-image: url("https://s2.loli.net/2022/06/17/JtWhyDBZ6Hq3P2m.png");
@@ -274,31 +315,48 @@ section.fs {
   background-repeat: no-repeat;
   background-position: 50% 15%;
   /* background-color: white; */
-  text-align: center;
+
 }
 section.fs h1 {
-  font-family: "思源黑体";
+  font-family: "微软雅黑";
   padding-top: 250px;
-  padding-bottom: 100px;
+  /* padding-bottom: 100px; */
+  text-align: center;
 }
+
+
 section.fs p {
   font-family: "inter", "仿宋";
   font-size: 20pt;
   font-weight: 200;
   color: #1f3134;
   line-height: 35pt;
+  text-align: center;
 }
 
 
-/* 分节 */
+/* 分节 ss*/
 
-section.st {
-  text-align: center;
+section.ss {
   padding-top: 300px;
 }
 
+section.ss h1, section.ss h2,section.ss h3,section.ss p {
+  text-align: center;
+}
 
-/* 两栏 */
+section.ss h2::after {
+  padding-top: 30px;
+  content: '';
+  width: 60%;
+  height: 1px;
+  display: block;
+  margin: 0 auto;
+  border-bottom: 1px solid rgba(2, 6, 23, 0.356);
+} 
+
+
+/* 两栏  split*/
 
 section.split {
   overflow: visible;
@@ -322,11 +380,21 @@ section.split .ldiv { grid-area: leftpanel; }
 section.split .rdiv { grid-area: rightpanel; }
 
 
-/* 没有标题页 */
+/* 没有标题页 wt */
 
 section.wt {
   padding: 165px 70px 100px 70px;  
 }
+
+
+
+
+/* 居中 cs */
+
+section.cs {
+  text-align: center;
+}
+
 
 
 
