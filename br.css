@@ -177,7 +177,7 @@ blockquote {
   padding: 0 1em;
   position: relative;
   font-family: inter, kaiti;
-  color: var(--dracula-comment);
+/*   color: var(--dracula-comment); */
 }
 /* 引用块前后 */
 blockquote::after,
@@ -185,7 +185,7 @@ blockquote::before {
   content: "“";
   display: block;
   font-family: "Times New Roman", serif;
-  font-weight: bold;
+/*   font-weight: bold; */
   position: absolute;
   color: var(--dracula-comment);
 }
